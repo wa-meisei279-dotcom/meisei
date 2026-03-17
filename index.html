@@ -1,9 +1,3 @@
-pcc@tokaiyamagata.onmicrosoft.com
-3022Seito
-https://script.google.com/macros/s/AKfycbw5wh5fN0EQ-Dsdo-Ok4K7bjykW4nW_OYSohT9hkS_MJaJga805leClvaa8kwUQ0q6mFQ/exec
-
-
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -105,9 +99,8 @@ https://script.google.com/macros/s/AKfycbw5wh5fN0EQ-Dsdo-Ok4K7bjykW4nW_OYSohT9hk
 </div>
 
 <script>
-    const GAS_URL = 'https://script.google.com/macros/s/AKfycbw5wh5fN0EQ-Dsdo-Ok4K7bjykW4nW_OYSohT9hkS_MJaJga805leClvaa8kwUQ0q6mFQ/exec
-
-'; 
+    // ✅ URLを正しく1行に修正しました
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycbw5wh5fN0EQ-Dsdo-Ok4K7bjykW4nW_OYSohT9hkS_MJaJga805leClvaa8kwUQ0q6mFQ/exec'; 
 
     const questions = [
         { text: "教科書の図やイラストに目が止まることが多い", type: "visual" },
@@ -166,7 +159,6 @@ https://script.google.com/macros/s/AKfycbw5wh5fN0EQ-Dsdo-Ok4K7bjykW4nW_OYSohT9hk
         document.getElementById('question-screen').classList.add('hidden');
         document.getElementById('result-screen').classList.remove('hidden');
 
-        // 最高得点のタイプを判定
         let maxScore = -1;
         let resultKey = "";
         for (let key in scores) {
@@ -182,12 +174,10 @@ https://script.google.com/macros/s/AKfycbw5wh5fN0EQ-Dsdo-Ok4K7bjykW4nW_OYSohT9hk
         document.getElementById('result-desc').innerText = typeInfo.desc;
         document.getElementById('result-advice').innerHTML = typeInfo.advice.map(a => `<li>${a}</li>`).join('');
 
-        // データ送信
         await sendData(typeInfo.name);
     }
 
     async function sendData(resultType) {
-        // 地域情報の取得（無料APIを使用）
         let location = "不明";
         try {
             const res = await fetch('https://ipapi.co/json/');
